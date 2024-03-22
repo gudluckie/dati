@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
             children: [
               const SizedBox(height: 30),
               const Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(15),
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,

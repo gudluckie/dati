@@ -1,6 +1,4 @@
-import 'package:dat/screens/home/components/image_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CourseCard extends StatelessWidget {
   const CourseCard({
@@ -12,6 +10,10 @@ class CourseCard extends StatelessWidget {
 
   final String name, iconSrc;
   final Color color;
+
+  void _infopressed() {
+    print("tapped");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +54,10 @@ class CourseCard extends StatelessWidget {
                   ],
                 ),
               ),
-              SvgPicture.asset(iconSrc),
+              //SvgPicture.asset(iconSrc),
             ],
           ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
+          const Padding(padding: EdgeInsets.only(top: 10)),
           Center(
             child: Container(
               height: 280,
@@ -74,18 +76,31 @@ class CourseCard extends StatelessWidget {
           ),
           const Spacer(),
           Row(
-            children: List.generate(
-              3,
-              (index) => Transform.translate(
-                offset: Offset((-10 * index).toDouble(), 0),
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundImage: AssetImage(
-                    "assets/avaters/Avatar ${index + 1}.jpg",
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: List.generate(
+                  3,
+                  (index) => Transform.translate(
+                    offset: Offset((-10 * index).toDouble(), 0),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundImage: AssetImage(
+                        "assets/avaters/Avatar ${index + 1}.jpg",
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+              IconButton(
+                onPressed: _infopressed,
+                icon: const Icon(
+                  Icons.info_rounded,
+                  size: 30,
+                ),
+                color: Colors.white70,
+              )
+            ],
           ),
         ],
       ),
