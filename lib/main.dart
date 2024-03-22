@@ -1,4 +1,5 @@
-import 'package:dat/screens/onboding/onboding_screen.dart';
+import 'package:dat/screens/home/home_screen.dart';
+//import 'package:dat/screens/onboding/onboding_screen.dart';
 import 'package:flutter/material.dart';
 //import 'package:rive_animation/screens/onboding/onboding_screen.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           errorBorder: defaultInputBorder,
         ),
       ),
-      home: const OnbodingScreen(),
+      home: const HomePage(),
     );
   }
 }

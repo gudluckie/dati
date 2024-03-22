@@ -1,20 +1,10 @@
-import 'package:dat/screens/onboding/components/sign_up_dialog.dart';
+import 'package:dat/screens/onboding/components/sign_in_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'sign_in_form.dart';
+import 'sign_up_form.dart';
 
-void _openTermsAndConditions() {
-  // Open the terms and conditions page or show a dialog
-  print('Opening Terms and Conditions');
-}
-
-void _openPrivacyPolicy() {
-  // Open the privacy policy page or show a dialog
-  print('Opening Privacy Policy');
-}
-
-void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
+void showSignUpDialog(BuildContext context, {required ValueChanged onValue}) {
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -52,7 +42,7 @@ void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
                   child: Column(
                     children: [
                       const Text(
-                        "Sign in",
+                        "Sign Up",
                         style: TextStyle(
                           fontSize: 34,
                           fontFamily: "Poppins",
@@ -62,11 +52,11 @@ void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
                       const Padding(
                         padding: EdgeInsets.symmetric(vertical: 16),
                         child: Text(
-                          "Lorem ipsum dolor sit amet,.",
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit mollis magna, nec efficitur tellus. Nulla facilisi.",
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      const SignInForm(),
+                      const SignUpForm(),
                       const Row(
                         children: [
                           Expanded(
@@ -88,7 +78,7 @@ void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
                       const Padding(
                         padding: EdgeInsets.symmetric(vertical: 24),
                         child: Text(
-                          "Sign up with Email or Phone Number",
+                          "Sign In with Email",
                           style: TextStyle(color: Colors.black54),
                         ),
                       ),
@@ -98,72 +88,14 @@ void showCustomDialog(BuildContext context, {required ValueChanged onValue}) {
                           IconButton(
                             onPressed: () {
                               Navigator.of(context).pop();
-                              showSignUpDialog(
-                                context,
-                                onValue: (_) {},
-                              );
+                              showCustomDialog(context, onValue: (_) {});
                             },
                             padding: EdgeInsets.zero,
                             icon: SvgPicture.asset(
                               "assets/icons/email_box.svg",
-                              height: 44,
-                              width: 44,
+                              height: 64,
+                              width: 64,
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                              showSignUpDialog(
-                                context,
-                                onValue: (_) {},
-                              );
-                            },
-                            padding: EdgeInsets.zero,
-                            icon: SvgPicture.asset(
-                              "assets/icons/phone.svg",
-                              height: 34,
-                              width: 34,
-                            ),
-                          ),
-                          // IconButton(
-                          //   onPressed: () {},
-                          //   padding: EdgeInsets.zero,
-                          //   icon: SvgPicture.asset(
-                          //     "assets/icons/google_box.svg",
-                          //     height: 64,
-                          //     width: 64,
-                          //   ),
-                          // ),
-                        ],
-                      ),
-                      const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 15)),
-                      const Column(
-                        children: [
-                          Text(
-                            'By clicking Sign Up, you agree to our',
-                            textAlign: TextAlign.center,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                  onPressed: _openTermsAndConditions,
-                                  child: Text(
-                                    'Terms and Condition',
-                                    textAlign: TextAlign.center,
-                                  )),
-                              Text(
-                                'and',
-                                textAlign: TextAlign.center,
-                              ),
-                              TextButton(
-                                  onPressed: _openPrivacyPolicy,
-                                  child: Text(
-                                    'Privacy Policy',
-                                    textAlign: TextAlign.center,
-                                  )),
-                            ],
                           ),
                         ],
                       ),
